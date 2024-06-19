@@ -1,103 +1,61 @@
-import React from "react";
+import React from 'react';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
+  BarChart,
+  Bar,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
   Legend,
-  ChartData,
-  ChartOptions,
-} from 'chart.js';
-import { Chart } from 'react-chartjs-2';
+} from 'recharts';
 
-// Register the necessary chart components
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+const data = [
+  { month: 'Jan', value: 1000, trend: 1000 },
+  { month: 'Feb', value: 2000, trend: 1500 },
+  { month: 'Mar', value: 3000, trend: 2000 },
+  { month: 'Apr', value: 4000, trend: 2500 },
+  { month: 'May', value: 3000, trend: 3000 },
+  { month: 'Jun', value: 2000, trend: 3500 },
+  { month: 'Jul', value: 1000, trend: 4000 },
+  { month: 'Aug', value: 2000, trend: 4500 },
+  { month: 'Sep', value: 3000, trend: 5000 },
+  { month: 'Oct', value: 4000, trend: 5500 },
+  { month: 'Nov', value: 3000, trend: 6000 },
+  { month: 'Dec', value: 2000, trend: 6500 },
+];
 
-interface DataType {
-  month: string;
-  value: number;
-}
-
-const BarChart: React.FC = () => {
-  const data: DataType[] = [
-    { month: "Jan", value: 1000 },
-    { month: "Feb", value: 2000 },
-    { month: "Mar", value: 3000 },
-    { month: "Apr", value: 4000 },
-    { month: "May", value: 3000 },
-    { month: "Jun", value: 2000 },
-    { month: "Jul", value: 1000 },
-    { month: "Aug", value: 2000 },
-    { month: "Sep", value: 3000 },
-    { month: "Oct", value: 4000 },
-    { month: "Nov", value: 3000 },
-    { month: "Dec", value: 2000 },
-  ];
-
-  const chartData: ChartData<'bar' | 'line', number[], string> = {
-    labels: data.map(d => d.month),
-    datasets: [
-      {
-        type: 'line' as const,
-        label: 'Trend',
-        data: data.map(d => d.value),
-        borderColor: '#002B55',
-        borderWidth: 2,
-        fill: false,
-        cubicInterpolationMode: 'monotone', 
-      },
-      {
-        type: 'bar' as const,
-        label: 'Value',
-        data: data.map(d => d.value),
-        backgroundColor: '#277ACC',
-        borderColor: '#277ACC',
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const options: ChartOptions<'bar' | 'line'> = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        display: false, // Hide the legend
-      },
-      title: {
-        display: false, // Hide the title
-      },
-    },
-    scales: {
-      y: {
-        type: 'linear',
-        beginAtZero: true,
-        max: 5000,
-        ticks: {
-          stepSize: 1000,
-        },
-      },
-    },
-  };
-
+const CombinedChart = () => {
   return (
-    <div style={{ width: '100%', height: '100%' }}>
-      <Chart type="bar" data={chartData} options={options} />
+    <div>
+      <BarChart
+        width={600}
+        height={300}
+        data={data}
+        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="month" />
+        <YAxis />
+        <Legend />
+        <Bar dataKey="value" fill="#277ACC" />
+        <LineChart data={data}>
+          <Line
+            type="monotone"
+            dataKey="trend"
+            stroke="#FF5733"
+            strokeWidth={2}
+            dot={false}
+            animationEasing="ease-in-out"
+            animationDuration={400}
+          />
+          <CartesianGrid stroke="#f5f5f5" />
+          <XAxis dataKey="month" />
+          <YAxis />
+        </LineChart>
+      </BarChart>
     </div>
   );
 };
 
-export default BarChart;
+export default CombinedChart;
