@@ -1,61 +1,75 @@
 import React from 'react';
 import {
-  BarChart,
+  ComposedChart,
   Bar,
-  LineChart,
   Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Legend,
+  Tooltip,
+  ResponsiveContainer,
 } from 'recharts';
 
 const data = [
-  { month: 'Jan', value: 1000, trend: 1000 },
-  { month: 'Feb', value: 2000, trend: 1500 },
-  { month: 'Mar', value: 3000, trend: 2000 },
-  { month: 'Apr', value: 4000, trend: 2500 },
-  { month: 'May', value: 3000, trend: 3000 },
-  { month: 'Jun', value: 2000, trend: 3500 },
-  { month: 'Jul', value: 1000, trend: 4000 },
-  { month: 'Aug', value: 2000, trend: 4500 },
-  { month: 'Sep', value: 3000, trend: 5000 },
-  { month: 'Oct', value: 4000, trend: 5500 },
-  { month: 'Nov', value: 3000, trend: 6000 },
-  { month: 'Dec', value: 2000, trend: 6500 },
+  { month: 'Jan', value: 1000 },
+  { month: 'Feb', value: 2000 },
+  { month: 'Mar', value: 3000 },
+  { month: 'Apr', value: 4000 },
+  { month: 'May', value: 3000 },
+  { month: 'Jun', value: 2000 },
+  { month: 'Jul', value: 1000 },
+  { month: 'Aug', value: 2000 },
+  { month: 'Sep', value: 3000 },
+  { month: 'Oct', value: 4000 },
+  { month: 'Nov', value: 3000 },
+  { month: 'Dec', value: 2000 },
 ];
+
+const CustomizedBar = (props:any) => {
+  const { x, y, width, height, fill } = props;
+  return (
+    <g>
+      <rect
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        fill={fill}
+      />
+    </g>
+  );
+};
 
 const CombinedChart = () => {
   return (
-    <div>
-      <BarChart
-        width={800}
-        height={300}
+    <ResponsiveContainer width="100%" height={300}>
+      <ComposedChart
         data={data}
-        margin={{ top: 20, right: 50, left: 0, bottom: 30 }} // Increased bottom margin to accommodate labels
+        margin={{ top: 20, right: 0, left: 0, bottom: 35 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="month" />
         <YAxis />
         <Legend />
-        
-        <Bar dataKey="value" fill="#277ACC" barSize={30} />
-        <LineChart data={data}>
-          <Line
-            type="monotone"
-            dataKey="trend"
-            stroke="#FF5733"
-            strokeWidth={2}
-            dot={false}
-            animationEasing="ease-in-out"
-            animationDuration={400}
-          />
-          <CartesianGrid stroke="#f5f5f5" />
-          <XAxis dataKey="month" />
-          <YAxis />
-        </LineChart>
-      </BarChart>
-    </div>
+        <Tooltip />
+        <Bar
+          dataKey="value"
+          fill="#277ACC"
+          barSize={30}
+          shape={<CustomizedBar />}
+        />
+        <Line
+          type="monotone"
+          dataKey="value"
+          stroke="#002B55"
+          strokeWidth={3}
+          dot={false}
+          animationEasing="ease-in-out"
+          animationDuration={400}
+        />
+      </ComposedChart>
+    </ResponsiveContainer>
   );
 };
 
