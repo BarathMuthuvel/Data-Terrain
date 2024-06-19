@@ -38,6 +38,7 @@ const CombinedChart = () => {
         <XAxis dataKey="month" />
         <YAxis />
         <Legend />
+        
         <Bar dataKey="value" fill="#277ACC" barSize={30} />
         <LineChart data={data}>
           <Line

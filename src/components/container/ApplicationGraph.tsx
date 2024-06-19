@@ -13,7 +13,7 @@ const GraphContainer = () => {
             style={{ width: "57%" }}
           >
             <div className="w-[98%] h-full">
-              <div className="flex gap-8 items-center justify-between font-light h-11">
+              <div className="flex gap-8 items-center border-b-2 pb-2 justify-between font-light h-11">
                 <div className="flex gap-3">
                   <div className="flex gap-3 items-center">
                     <h1 className="text-lg w-44 font-semibold">
@@ -31,7 +31,7 @@ const GraphContainer = () => {
                   <Dropdown />
                 </div>
               </div>
-              <div className="h-[calc(100%-2.75rem)]">
+              <div className="">
                 <BarChart />
               </div>
             </div>
