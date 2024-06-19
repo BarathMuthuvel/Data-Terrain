@@ -53,7 +53,6 @@ const PostedJobs = () => {
       bg: "bg-blue-900",
       text: "text-white",
     },
-    // Add more job objects as needed
   ];
 
   return (
@@ -80,7 +79,7 @@ const PostedJobs = () => {
         <p className="p-2">Completed Jobs</p>
       </div>
 
-      <div className="flex overflow-x-scroll scrollbar max-w-5xl py-2 gap-2">
+      <div className="flex flex-wrap justify-between py-2 gap-2">
         {jobs.map((job) => (
           <PostedJobsCard key={job.id} data={job} />
         ))}

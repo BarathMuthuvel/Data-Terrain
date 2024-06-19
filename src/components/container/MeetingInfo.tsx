@@ -1,8 +1,10 @@
-import React from "react";
 import IconComponent from "./IconComponent";
 import MeetingInfoCard from "../sub-components/MeetingInfoCard";
+import person1 from "../../Images/todaycard.png";
+import person2 from "../../Images/Mask group (5).png"
+import person3 from "../../Images/Mask group (5).png"
 
-const TodayInterview = () => {
+const MeetingInfo = () => {
   const interviews = [
     {
       id: 1,
@@ -12,8 +14,9 @@ const TodayInterview = () => {
       time: "10:30 AM",
       levels: ["7/10", "7/10", "waiting"],
       meetVia: "G-Meet",
-      interviewers: ["Stella", "Johnson", "Johnson"],
+      interviewers: ["Stella"], 
       attendees: ["Johnson"],
+      interviewerImage: person1,
     },
     {
       id: 2,
@@ -23,23 +26,24 @@ const TodayInterview = () => {
       time: "11:00 AM",
       levels: ["8/10", "waiting", "waiting"],
       meetVia: "Zoom",
-      interviewers: ["Alice", "Bob"],
+      interviewers: ["Alice"],
       attendees: ["Alice"],
+      interviewerImage: person2,
     },
     {
       id: 3,
       name: "Jane Doe",
-      position: "Frontend Developer",
+      position: "React Developer",
       date: "20th Feb 2024",
       time: "11:00 AM",
       levels: ["8/10", "waiting", "waiting"],
       meetVia: "Zoom",
-      interviewers: ["Alice", "Bob"],
+      interviewers: ["Bob"],
       attendees: ["Alice"],
+      interviewerImage: person3,
     },
-    // Add more interview objects as needed
   ];
-
+  
   return (
     <div className="w-[100%] bg-white shadow-md rounded my-5 p-4">
       <div className="flex items-center justify-between h-12 pb-1 border-b">
@@ -60,4 +64,4 @@ const TodayInterview = () => {
   );
 };
 
-export default TodayInterview;
+export default MeetingInfo;

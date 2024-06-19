@@ -10,7 +10,7 @@ const UpcomingCard = ({
   return (
     <div className="flex items-center gap-1 text-sm mb-4 py-2 ml-4 w-[90%]">
       <div
-        className={`w-[19%] py-3 rounded ${bg} ${text} flex items-center justify-center flex-col`}
+        className={`w-[16%] h-[16%] py-3 rounded ${bg} ${text} flex items-center justify-center flex-col`}
       >
         <h2>{date}</h2>
         <p>{month}</p>

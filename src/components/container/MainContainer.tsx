@@ -14,7 +14,6 @@ import person1 from "../../Images/Mask group.png"
 import person2 from "../../Images/Mask group (1).png"
 import person3 from "../../Images/Mask group (2).png"
 import person4 from "../../Images/Mask group (3).png"
-import person5 from "../../Images/Mask group (4).png"
 
 const upcomingEvents = [
   {
@@ -27,20 +26,20 @@ const upcomingEvents = [
     text: "text-blue-500",
   },
   {
-    date: "08",
+    date: "07",
     month: "Feb",
-    title: "Meeting with Team",
-    createdBy: "John",
-    time: "1 P.M to 2 P.M",
+    title: "Interview with PMO",
+    createdBy: "Stephan",
+    time: "10 P.M to 11 P.M",
     bg: "bg-gray-500",
     text: "text-gray-100",
   },
   {
-    date: "09",
+    date: "07",
     month: "Feb",
-    title: "Project Review",
-    createdBy: "Emma",
-    time: "3 P.M to 4 P.M",
+    title: "Interview with Net. Admin",
+    createdBy: "Stella",
+    time: "10 P.M to 11 P.M",
     bg: "bg-gray-300",
     text: "text-gray-900",
   },
@@ -56,17 +55,17 @@ const activities = [
   },
   {
     image: user2,
-    name: "Jane Smith",
-    role: "Frontend Developer",
-    description: "Meeting with John",
-    time: "30 mins ago",
+    name: "John Doe",
+    role: "Python Developer",
+    description: "Interview with Stella",
+    time: "15 mins ago",
   },
   {
     image: user3,
-    name: "Alice Johnson",
-    role: "UI/UX Designer",
-    description: "Project Review with Emma",
-    time: "1 hour ago",
+    name: "John Doe",
+    role: "Python Developer",
+    description: "Interview with Stella",
+    time: "15 hour ago",
   },
 ];
 
@@ -74,33 +73,24 @@ const HiringUpdates = [
   {
     image: person1,
     name: "John Doe",
-    description: "Python Developer",
+    description: "Senior Python Developer",
     time: "15 mins ago",
   },
   {
     image: person2,
-    name: "Jane Smith",
-    description: "Python Developer",
-    time: "30 mins ago",
+    name: "John Doe",
+    description: "Senior Python Developer",
   },
   {
     image: person3,
-    name: "Alice Johnson",
-    description: "Python Developer",
-    time: "1 hour ago",
+    name: "John Doe",
+    description: "Senior Python Developer",
   },
   {
     image: person4,
-    name: "Alice Johnson",
-    description: "Python Developer",
-    time: "1 hour ago",
-  },
-  {
-    image: person5,
-    name: "Jane Smith",
-    description: "Python Developer",
-    time: "30 mins ago",
-  },
+    name: "John Doe",
+    description: "Senior Python Developer",
+  }
 ];
 
 const MainContainer = () => {
@@ -117,7 +107,7 @@ const MainContainer = () => {
           <ApplicationGraph />
 
           <div className="flex gap-2 w-[100%] ">
-            <div className="w-[65%]">
+            <div className="w-[70%]">
               <MeetingInfo />
               <PostedJobs />
               <CandidateStatus />
