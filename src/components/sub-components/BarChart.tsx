@@ -15,13 +15,13 @@ const data = [
   { month: 'Jan', value: 1000 },
   { month: 'Feb', value: 2000 },
   { month: 'Mar', value: 3000 },
-  { month: 'Apr', value: 4000 },
+  { month: 'Apr', value: 3800 },
   { month: 'May', value: 3000 },
   { month: 'Jun', value: 2000 },
   { month: 'Jul', value: 1000 },
   { month: 'Aug', value: 2000 },
   { month: 'Sep', value: 3000 },
-  { month: 'Oct', value: 4000 },
+  { month: 'Oct', value: 3900 },
   { month: 'Nov', value: 3000 },
   { month: 'Dec', value: 2000 },
 ];
@@ -62,7 +62,7 @@ const CombinedChart = () => {
         <Line
           type="monotone"
           dataKey="value"
-          stroke="#002B55"
+          stroke="#075985"
           strokeWidth={3}
           dot={false}
           animationEasing="ease-in-out"
