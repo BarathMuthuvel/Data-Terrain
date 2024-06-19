@@ -29,16 +29,16 @@ const CombinedChart = () => {
   return (
     <div>
       <BarChart
-        width={600}
+        width={800}
         height={300}
         data={data}
-        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+        margin={{ top: 20, right: 50, left: 0, bottom: 30 }} // Increased bottom margin to accommodate labels
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="month" />
         <YAxis />
         <Legend />
-        <Bar dataKey="value" fill="#277ACC" />
+        <Bar dataKey="value" fill="#277ACC" barSize={30} />
         <LineChart data={data}>
           <Line
             type="monotone"
