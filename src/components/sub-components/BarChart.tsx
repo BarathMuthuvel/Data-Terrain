@@ -69,9 +69,6 @@ const BarChart: React.FC = () => {
       },
     ],
   };
-  
-  
-  
 
   const options: ChartOptions<'bar' | 'line'> = {
     responsive: true,
@@ -86,6 +83,7 @@ const BarChart: React.FC = () => {
     },
     scales: {
       y: {
+        type: 'linear',
         beginAtZero: true,
         max: 5000,
         ticks: {
