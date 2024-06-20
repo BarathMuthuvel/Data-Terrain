@@ -41,6 +41,19 @@ const CustomizedBar = (props:any) => {
   );
 };
 
+const CustomTooltip = ({ active, payload, label }:any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip" style={{ backgroundColor: '#fff', border: '1px solid #ccc', padding: '10px' }}>
+        <p className="label">{`Month: ${label}`}</p>
+        <p className="value">{`Value: ${payload[0].value}`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
 const CombinedChart = () => {
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -52,7 +65,7 @@ const CombinedChart = () => {
         <XAxis dataKey="month" />
         <YAxis />
         <Legend />
-        <Tooltip />
+        <Tooltip content={<CustomTooltip />} />
         <Bar
           dataKey="value"
           fill="#277ACC"
